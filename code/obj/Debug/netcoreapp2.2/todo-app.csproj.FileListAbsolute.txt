@@ -1,0 +1,17 @@
+C:\Users\Isaac\projects\veni-bff\code\obj\Debug\netcoreapp2.2\todo-app.csprojAssemblyReference.cache
+C:\Users\Isaac\projects\veni-bff\code\obj\Debug\netcoreapp2.2\todo-app.AssemblyInfoInputs.cache
+C:\Users\Isaac\projects\veni-bff\code\obj\Debug\netcoreapp2.2\todo-app.AssemblyInfo.cs
+C:\Users\Isaac\projects\veni-bff\code\obj\Debug\netcoreapp2.2\todo-app.csproj.CoreCompileInputs.cache
+C:\Users\Isaac\projects\veni-bff\code\obj\Debug\netcoreapp2.2\todo-app.RazorAssemblyInfo.cache
+C:\Users\Isaac\projects\veni-bff\code\obj\Debug\netcoreapp2.2\todo-app.RazorAssemblyInfo.cs
+C:\Users\Isaac\projects\veni-bff\code\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Users\Isaac\projects\veni-bff\code\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Users\Isaac\projects\veni-bff\code\bin\Debug\netcoreapp2.2\todo-app.deps.json
+C:\Users\Isaac\projects\veni-bff\code\bin\Debug\netcoreapp2.2\todo-app.runtimeconfig.json
+C:\Users\Isaac\projects\veni-bff\code\bin\Debug\netcoreapp2.2\todo-app.runtimeconfig.dev.json
+C:\Users\Isaac\projects\veni-bff\code\bin\Debug\netcoreapp2.2\todo-app.dll
+C:\Users\Isaac\projects\veni-bff\code\bin\Debug\netcoreapp2.2\todo-app.pdb
+C:\Users\Isaac\projects\veni-bff\code\obj\Debug\netcoreapp2.2\todo-app.RazorTargetAssemblyInfo.cache
+C:\Users\Isaac\projects\veni-bff\code\obj\Debug\netcoreapp2.2\todo-app.dll
+C:\Users\Isaac\projects\veni-bff\code\obj\Debug\netcoreapp2.2\todo-app.pdb
+C:\Users\Isaac\projects\veni-bff\code\obj\Debug\netcoreapp2.2\todo-app.genruntimeconfig.cache
