@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Isaac\\projects\\veni-bff\\code\\veni-bff.csproj": {}
+    "C:\\Users\\Isaac\\projects\\veni\\user-bff\\code\\veni-bff.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Isaac\\projects\\veni-bff\\code\\veni-bff.csproj": {
+    "C:\\Users\\Isaac\\projects\\veni\\user-bff\\code\\veni-bff.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Isaac\\projects\\veni-bff\\code\\veni-bff.csproj",
+        "projectUniqueName": "C:\\Users\\Isaac\\projects\\veni\\user-bff\\code\\veni-bff.csproj",
         "projectName": "veni-bff",
-        "projectPath": "C:\\Users\\Isaac\\projects\\veni-bff\\code\\veni-bff.csproj",
+        "projectPath": "C:\\Users\\Isaac\\projects\\veni\\user-bff\\code\\veni-bff.csproj",
         "packagesPath": "C:\\Users\\Isaac\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Isaac\\projects\\veni-bff\\code\\obj\\",
+        "outputPath": "C:\\Users\\Isaac\\projects\\veni\\user-bff\\code\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Isaac\\AppData\\Roaming\\NuGet\\NuGet.Config",

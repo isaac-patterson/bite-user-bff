@@ -22,7 +22,7 @@ namespace veni_bff.Services
       }
       public DbSet<ToDo> ToDos { get; set; }
 
-      public DbSet<Restaurant> Restaurants { get; set; }
+      public DbSet<Restaurant> Restaurant { get; set; }
 
       public DbSet<MenuItem> MenuItem { get; set; }
 

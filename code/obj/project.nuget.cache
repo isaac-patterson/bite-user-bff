@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hvGVVg0EGEXOtCS1gK5AJ/geZhTbJcSpuiGWr5NHV58kKDCiM5zLaGtHAWk1fTkqM5+q2DV5BDxS/i0v/Qliyw==",
+  "dgSpecHash": "XSNyR3YISdvuxmNth7E3qdZQ+qybt/fIfO0g1maVCkP+P+CF2GmFWNaKW+kFVA+SyYhGCj+W9hH0EKMKSxi9PQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Isaac\\projects\\veni-bff\\code\\veni-bff.csproj",
+  "projectFilePath": "C:\\Users\\Isaac\\projects\\veni\\user-bff\\code\\veni-bff.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Isaac\\.nuget\\packages\\amazon.extensions.configuration.systemsmanager\\1.2.0\\amazon.extensions.configuration.systemsmanager.1.2.0.nupkg.sha512",
     "C:\\Users\\Isaac\\.nuget\\packages\\awssdk.core\\3.3.103.31\\awssdk.core.3.3.103.31.nupkg.sha512",

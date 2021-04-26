@@ -14,10 +14,10 @@ namespace veni_bff.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RestaurantsController : ControllerBase
+    public class RestaurantController : ControllerBase
     {
         private IOptions<Parameters> _options;
-        public RestaurantsController(IOptions<Parameters> options)
+        public RestaurantController(IOptions<Parameters> options)
         {
             Console.WriteLine("Restaurant Controller!");
             _options = options;
@@ -25,11 +25,12 @@ namespace veni_bff.Controllers
 
         [HttpGet]
         public ActionResult<List<Restaurant>> Get()
+        
         {
             List<Restaurant> restaurants;
             using (var db = new DBContext(_options))
             {
-                restaurants = db.Restaurants.ToList(); 
+                restaurants = db.Restaurant.ToList(); 
             }
 
             return restaurants;
