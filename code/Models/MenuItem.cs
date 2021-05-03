@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace veni_bff.Models
 {
@@ -11,5 +12,6 @@ namespace veni_bff.Models
         public string Description { get; set; }
         public float Price { get; set; }
         public DateTime CreatedTime { get; set; }
+        public List<MenuItemOption> MenuItemOption { get; set; }
     }
 }

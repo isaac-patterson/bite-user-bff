@@ -25,7 +25,6 @@ namespace veni_bff.Controllers
 
         [HttpGet]
         public ActionResult<List<Restaurant>> Get()
-        
         {
             List<Restaurant> restaurants;
             using (var db = new DBContext(_options))

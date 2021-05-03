@@ -30,6 +30,8 @@ namespace veni_bff.Controllers
             using (var db = new DBContext(_options))
             {
                 menuItems = db.MenuItem
+                    .Include(x => x.MenuItemOption)
+                    .ThenInclude(x => x.MenuItemOptionValue)
                     .Where(x => x.RestaurantId == restaurantId)
                     .ToList();
             }
