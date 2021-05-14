@@ -6951,9 +6951,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Isaac\\projects\\veni\\user-bff\\code\\veni-bff.csproj",
-      "projectName": "veni-bff",
-      "projectPath": "C:\\Users\\Isaac\\projects\\veni\\user-bff\\code\\veni-bff.csproj",
+      "projectUniqueName": "C:\\Users\\Isaac\\projects\\veni\\user-bff\\code\\user-bff.csproj",
+      "projectName": "user-bff",
+      "projectPath": "C:\\Users\\Isaac\\projects\\veni\\user-bff\\code\\user-bff.csproj",
       "packagesPath": "C:\\Users\\Isaac\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Isaac\\projects\\veni\\user-bff\\code\\obj\\",
       "projectStyle": "PackageReference",
