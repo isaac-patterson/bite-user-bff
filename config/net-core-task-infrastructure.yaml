@@ -33,7 +33,7 @@ Parameters:
   AppStackName:
     Description: An Application name that will be prefixed to resource names
     Type: String
-    Default: veni-bff-stack-infra
+    Default: user-bff-stack-infra
 Resources:
   ApiVPC:
     Type: AWS::EC2::VPC
@@ -282,7 +282,7 @@ Resources:
                 - '.dkr.ecr.'
                 - Ref: AWS::Region
                 - '.amazonaws.com/'
-                - !Sub ${AppStackName}-veni-bff-repository:latest  
+                - !Sub ${AppStackName}-user-bff-repository:latest  
           Cpu: 256
           Memory: 256
           PortMappings:
@@ -290,7 +290,7 @@ Resources:
               Protocol: tcp
           Command:
             - "dotnet"
-            - "veni-bff.dll"                       
+            - "user-bff.dll"                       
   ECSLogGroup:
     Type: AWS::Logs::LogGroup
     Properties: 
@@ -515,14 +515,14 @@ Resources:
   CodeCommitRepository:
     Type: AWS::CodeCommit::Repository
     Properties:
-      RepositoryName: !Sub ${AppStackName}-veni-bff-repo
-      RepositoryDescription: Respository to maintain code related to the veni-bff Api.
+      RepositoryName: !Sub ${AppStackName}-user-bff-repo
+      RepositoryDescription: Respository to maintain code related to the user-bff Api.
   #Code Build
   CodeBuildProject:
     Type: AWS::CodeBuild::Project
     Properties:
-      Name: !Sub ${AppStackName}-veni-bff-build
-      Description: veni-bff Api application codebuild project.
+      Name: !Sub ${AppStackName}-user-bff-build
+      Description: user-bff Api application codebuild project.
       ServiceRole: !GetAtt CodeBuildRole.Arn
       Artifacts:
         Type: no_artifacts
@@ -541,7 +541,7 @@ Resources:
                     - '.dkr.ecr.'
                     - Ref: AWS::Region
                     - '.amazonaws.com/'
-                    - !Sub ${AppStackName}-veni-bff-repository  
+                    - !Sub ${AppStackName}-user-bff-repository  
             - Name: AWS_DEFAULT_REGION
               Type: PLAINTEXT
               Value: 
@@ -554,7 +554,7 @@ Resources:
             - - 'https://git-codecommit.'
               - Ref: AWS::Region
               - '.amazonaws.com/v1/repos/'
-              - !Sub ${AppStackName}-veni-bff-repo
+              - !Sub ${AppStackName}-user-bff-repo
         Type: CODECOMMIT 
       SourceVersion: refs/heads/master
       TimeoutInMinutes: 10 
@@ -598,7 +598,7 @@ Resources:
   Repository: 
     Type: AWS::ECR::Repository
     Properties: 
-      RepositoryName: !Sub ${AppStackName}-veni-bff-repository
+      RepositoryName: !Sub ${AppStackName}-user-bff-repository
       RepositoryPolicyText: 
         Version: "2012-10-17"
         Statement: 

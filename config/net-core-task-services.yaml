@@ -16,18 +16,18 @@ Mappings:
 Parameters:
   StackName:
     Type: String
-    Default: veni-bff-stack-infra
+    Default: user-bff-stack-infra
     Description: The name of the parent stack that spun up infrastructure already
   AppStackName:
     Description: Service stack for net-core-task
     Type: String
-    Default: veni-bff-stack-service
+    Default: user-bff-stack-service
 
 Resources:
   ECSService:
     Type: AWS::ECS::Service
     Properties:
-      ServiceName: !Sub ${AppStackName}-veni-bff-service
+      ServiceName: !Sub ${AppStackName}-user-bff-service
       Cluster:
         Fn::ImportValue:
           !Join [':', [!Ref 'StackName', 'ClusterName']]
