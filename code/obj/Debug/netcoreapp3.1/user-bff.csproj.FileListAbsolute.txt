@@ -19,11 +19,9 @@ C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\Microsoft.Ent
 C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\MySql.Data.dll
 C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\MySql.Data.EntityFrameworkCore.dll
 C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\Remotion.Linq.dll
 C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
 C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
 C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
-C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\System.Interactive.Async.dll
 C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
 C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
@@ -40,3 +38,5 @@ C:\Users\Isaac\projects\veni\user-bff\code\obj\Debug\netcoreapp3.1\user-bff.cspr
 C:\Users\Isaac\projects\veni\user-bff\code\obj\Debug\netcoreapp3.1\user-bff.dll
 C:\Users\Isaac\projects\veni\user-bff\code\obj\Debug\netcoreapp3.1\user-bff.pdb
 C:\Users\Isaac\projects\veni\user-bff\code\obj\Debug\netcoreapp3.1\user-bff.genruntimeconfig.cache
+C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Isaac\projects\veni\user-bff\code\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
