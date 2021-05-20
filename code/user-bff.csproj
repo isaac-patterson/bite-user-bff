@@ -9,14 +9,10 @@
   <ItemGroup>
     <PackageReference Include="AWSSDK.SimpleSystemsManagement" Version="3.3.106" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
-<<<<<<< HEAD
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-=======
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0" />
->>>>>>> 27837bb2fc45b6678561ac8b7323686a9c488e2c
     <PackageReference Include="MySql.Data" Version="8.0.17" />
     <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.17" />
     <PackageReference Include="Amazon.Extensions.Configuration.SystemsManager" Version="1.2.0" />

@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "Ty/NM0pbn+vbbEHuYntzp2TUpW/vQBNOfYP0iebGvE4ieOclx3/m7UOHJcqhunJLB/uhtXbbbDwlzv1pRojqVQ==",
-=======
-  "dgSpecHash": "lbIBqwbBW0jVNnlT5kzFp0ZN7BlgkAqU7Qml4gz2tOXOnpGOtPVqO/AZUNlZCmneJPGI0e0Ew6UphT5PqiN7sA==",
->>>>>>> 27837bb2fc45b6678561ac8b7323686a9c488e2c
   "success": true,
   "projectFilePath": "C:\\Users\\Isaac\\projects\\veni\\user-bff\\code\\user-bff.csproj",
   "expectedPackageFiles": [
