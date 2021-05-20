@@ -39,3 +39,4 @@ C:\Users\Isaac\projects\veni\user-bff\code\obj\Debug\netcoreapp3.1\user-bff.cspr
 C:\Users\Isaac\projects\veni\user-bff\code\obj\Debug\netcoreapp3.1\user-bff.dll
 C:\Users\Isaac\projects\veni\user-bff\code\obj\Debug\netcoreapp3.1\user-bff.pdb
 C:\Users\Isaac\projects\veni\user-bff\code\obj\Debug\netcoreapp3.1\user-bff.genruntimeconfig.cache
+C:\Users\Isaac\projects\veni\user-bff\code\obj\Debug\netcoreapp3.1\user-bff.csprojAssemblyReference.cache
