@@ -26,4 +26,4 @@ phases:
 artifacts:
   files:
     - config/buildspec.yml
-    - images.json
+    - code/images.json
