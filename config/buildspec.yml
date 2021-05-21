@@ -24,8 +24,13 @@ phases:
       - docker push "$IMAGE_URI"
       - printf '[{"name":"App","imageUri":"%s"}]' "$IMAGE_URI" > images.json
 artifacts:
+
+  files:
+    - buildspec.yaml
   secondary-artifacts:
-  
+    DefinitionArtifact:
+      files:
+        - buildspec.yaml
     ImageArtifact:
       files:
         - images.json
