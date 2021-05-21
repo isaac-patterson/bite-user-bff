@@ -21,7 +21,7 @@ phases:
       - echo Build completed on `date`
       - echo Push the latest Docker Image...
       - docker push "$IMAGE_URI"
-      - printf '[{"name":"App","imageUri":"%s"}]' "$IMAGE_URI" > images.json
+      - printf '[{"name":"user-bff","imageUri":"%s"}]' "$IMAGE_URI" > images.json
 artifacts:
   files:
     - buildspec.yml
