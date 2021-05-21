@@ -26,10 +26,3 @@ phases:
 artifacts:
   files:
     - config/buildspec.yml
-  secondary-artifacts:
-    DefinitionArtifact:
-      files:
-        - config/buildspec.yml
-    ImageArtifact:
-      files:
-        - images.json
