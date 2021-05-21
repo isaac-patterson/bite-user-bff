@@ -6,7 +6,6 @@ phases:
       dotnet: 3.1
   pre_build:
     commands:
-      - cd code/
       - echo Logging in to Amazon ECR
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - IMAGE_URI="${REPOSITORY_URI}:latest"
@@ -25,5 +24,5 @@ phases:
       - printf '[{"name":"App","imageUri":"%s"}]' "$IMAGE_URI" > images.json
 artifacts:
   files:
-    - config/buildspec.yml
-    - code/images.json
+    - buildspec.yml
+    - images.json
