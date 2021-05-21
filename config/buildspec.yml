@@ -22,14 +22,14 @@ phases:
       - echo Build completed on `date`
       - echo Push the latest Docker Image...
       - docker push "$IMAGE_URI"
-      - printf '[{"name":"App","imageUri":"%s"}]' "$IMAGE_URI" > images.json
-artifacts:
-  files:
-    - config/buildspec.yml
-  secondary-artifacts:
-    DefinitionArtifact:
-      files:
-        - config/buildspec.yml
-    ImageArtifact:
-      files:
-        - images.json
+#       - printf '[{"name":"App","imageUri":"%s"}]' "$IMAGE_URI" > images.json
+# artifacts:
+#   files:
+#     - config/buildspec.yml
+#   secondary-artifacts:
+#     DefinitionArtifact:
+#       files:
+#         - config/buildspec.yml
+#     ImageArtifact:
+#       files:
+#         - images.json
