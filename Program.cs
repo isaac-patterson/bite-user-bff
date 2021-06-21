@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
-namespace veni_bff
+namespace user_bff
 {
     public class Program
     {
@@ -15,8 +15,11 @@ namespace veni_bff
             WebHost.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration(builder =>
                 {
-                    builder.AddSystemsManager("/Database");
+                    builder.AddSystemsManager("/Database"); //takes from aws pstore all parameters starting with database/
                 })
-            .UseStartup<Startup>();
+
+            .UseStartup<Startup>()
+            .UseDefaultServiceProvider(options =>
+                options.ValidateScopes = false);
     }
 }

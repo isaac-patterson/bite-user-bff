@@ -6,31 +6,24 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using veni_bff.Services;
-using veni_bff.Models;
+using user_bff.Services;
+using user_bff.Models;
 using System.Threading.Tasks;
 
-namespace veni_bff.Controllers
+namespace user_bff.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class RestaurantController : ControllerBase
     {
-        private IOptions<Parameters> _options;
-        public RestaurantController(IOptions<Parameters> options)
-        {
-            Console.WriteLine("Restaurant Controller!");
-            _options = options;
-        }
+        public RestaurantController() {}
 
         [HttpGet]
-        public ActionResult<List<Restaurant>> Get()
+        public ActionResult<List<Restaurant>> Get([FromServices] DBContext db)
         {
             List<Restaurant> restaurants;
-            using (var db = new DBContext(_options))
-            {
-                restaurants = db.Restaurant.ToList(); 
-            }
+            restaurants = db.Restaurant.ToList(); 
+            
 
             return restaurants;
         }

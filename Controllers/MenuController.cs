@@ -6,35 +6,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using veni_bff.Models;
-using veni_bff.Services;
+using user_bff.Models;
+using user_bff.Services;
 
-namespace veni_bff.Controllers
+namespace user_bff.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class MenuController : ControllerBase
     {
-        private IOptions<Parameters> _options;
-        public MenuController(IOptions<Parameters> options)
-        {
-            Console.WriteLine("Menu Controller!");
-            _options = options;
-        }
+        public MenuController() { }
 
         [HttpGet]
-        public ActionResult<List<MenuItem>> Get(int restaurantId)
+        public ActionResult<List<MenuItem>> Get([FromServices] DBContext db, int restaurantId)
         {
             List<MenuItem> menuItems;
            
-            using (var db = new DBContext(_options))
-            {
-                menuItems = db.MenuItem
+            menuItems = db.MenuItem
                     .Include(x => x.MenuItemOption)
                     .ThenInclude(x => x.MenuItemOptionValue)
                     .Where(x => x.RestaurantId == restaurantId)
                     .ToList();
-            }
 
             return menuItems;
         }

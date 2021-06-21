@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace veni_bff.Models
+namespace user_bff.Models
 {
     public class MenuItemOption
     {

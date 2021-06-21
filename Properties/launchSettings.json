@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "veni_bff": {
+    "user_bff": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",

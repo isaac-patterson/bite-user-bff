@@ -1,6 +1,6 @@
 using System;
 
-namespace veni_bff.Models
+namespace user_bff.Models
 {
     public class Restaurant
     {

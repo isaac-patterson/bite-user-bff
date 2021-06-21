@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace veni_bff.Controllers
+namespace user_bff.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
