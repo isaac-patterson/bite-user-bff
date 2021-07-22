@@ -11,7 +11,7 @@ namespace user_bff.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public float Price { get; set; }
-        public DateTime CreatedTime { get; set; }
+        public DateTime CreatedDate { get; set; }
         public List<MenuItemOption> MenuItemOption { get; set; }
     }
 }
