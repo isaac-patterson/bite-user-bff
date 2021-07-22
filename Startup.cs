@@ -5,7 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using System;
+using System.IO;
+using System.Reflection;
+using System.Text.Json.Serialization;
 using user_bff.Services;
 
 namespace user_bff
@@ -23,18 +27,32 @@ namespace user_bff
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddControllers();
+            object p = services.AddControllers();
 
-            //var connectionString = "Server=localhost;Database=bite;Uid=root;Pwd=ipat2421G#";
+            //var connectionString = "Server=146.71.76.234;Database=swiftfooddb;Uid=dbUser;Pwd=XXXX";
+            //var connectionString = "Server=localhost;Database=bite;Uid=root;Pwd=XXXXXXXX";
+            //var connectionString = Configuration.GetValue<String>("Config:AuroraConnectionString");
+            //var connectionString = "Server=localhost;Database=bite;Uid=root;Pwd=XXXXXXXX";
             var connectionString = Configuration.GetValue<String>("Config:AuroraConnectionString");
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 21));
 
             services.AddDbContext<DBContext>(
-                x => x.UseMySql(connectionString, serverVersion)
+                x => x.UseMySql(connectionString, serverVersion, options => options.EnableRetryOnFailure())
             );
 
-            services.AddTransient<IOrderService, OrderService>();
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "User-BFF API", Version = "v1" });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
 
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<ICouponService, CouponService>();
+            services.AddTransient<IStripeService, StripeService>();
+            services.AddTransient<IPaymentService, PaymentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,8 +69,18 @@ namespace user_bff
                 app.UseHsts();
             }
 
-             //Accept All HTTP Request Methods from all origins
-            app.UseCors(builder =>builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
+            //Accept All HTTP Request Methods from all origins
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "User-BFF API V1");
+            });
 
             app.UsePathBase(new PathString("/user"));
             app.UseRouting();

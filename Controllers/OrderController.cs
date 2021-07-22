@@ -13,15 +13,14 @@ namespace user_bff.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
-        public OrderController(IOrderService orderService) {
+        public OrderController(IOrderService orderService)
+        {
             _orderService = orderService;
         }
 
         /// <summary>
         /// Get order by order id
-        /// GET api/<CouponController>/5
         /// </summary>
-        /// <param name="db">Database context service</param>
         /// <param name="id">Order id</param>
         /// <returns>Order entity</returns>
         // GET api/<OrderController>/5
@@ -46,9 +45,7 @@ namespace user_bff.Controllers
 
         /// <summary>
         /// Create new order into system
-        /// POST api/<OrderController>
         /// </summary>
-        /// <param name="db">Database context service</param>
         /// <param name="order">Order entity</param>
         /// <returns></returns>
         [HttpPost]

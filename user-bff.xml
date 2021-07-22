@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>user-bff</name>
+    </assembly>
+    <members>
+        <member name="M:user_bff.Controllers.CouponController.Get(System.String)">
+            <summary>
+            Get: Validate discount coupon code
+            </summary>
+            <param name="couponCode">User requested discount coupon code</param>
+            <returns></returns>
+        </member>
+        <member name="M:user_bff.Controllers.OrderController.Get(System.Int32)">
+            <summary>
+            Get order by order id
+            </summary>
+            <param name="id">Order id</param>
+            <returns>Order entity</returns>
+        </member>
+        <member name="M:user_bff.Controllers.OrderController.Create(user_bff.Models.Order)">
+            <summary>
+            Create new order into system
+            </summary>
+            <param name="order">Order entity</param>
+            <returns></returns>
+        </member>
+        <member name="M:user_bff.Controllers.PaymentController.Capture(user_bff.Models.PayModel)">
+            <summary>
+            POST: Capture online payment 
+            </summary>
+            <param name="payModel">paymodel</param>
+            <returns>object</returns>
+        </member>
+        <member name="M:user_bff.Controllers.PaymentController.Refund(System.String)">
+            <summary>
+            Get: Refund payment
+            </summary>
+            <param name="chargeId">chargeId</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:user_bff.Services.IStripeService.Charge(user_bff.Models.PayModel)">
+            <summary>
+            Use: Take payment from stripe
+            </summary>
+            <param name="chargeCreateOptions">Charge option</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:user_bff.Services.IStripeService.Refund(System.String)">
+            <summary>
+            Use: Refund stripe paymennt
+            </summary>
+            <param name="refundCreateOptions">Regund create option</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:user_bff.Services.StripeService.Charge(user_bff.Models.PayModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:user_bff.Services.StripeService.Refund(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:user_bff.Services.ICouponService.GetById(System.String)">
+            <summary>
+            Use: Get coupon by Id
+            </summary>
+            <param name="couponCode">coupon code</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:user_bff.Services.ICouponService.IsCouponExists(System.String)">
+            <summary>
+            Use: Check coupon exists
+            </summary>
+            <param name="couponCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:user_bff.Services.CouponService.GetById(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:user_bff.Services.CouponService.IsCouponExists(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:user_bff.Services.OrderService.GetAll">
+            <summary>
+            Use: Get list of order 
+            </summary>
+            <returns>Object</returns>
+        </member>
+        <member name="M:user_bff.Services.OrderService.GetById(System.Int64)">
+            <summary>
+            Use: Get order information by order id
+            </summary>
+            <param name="id"></param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:user_bff.Services.OrderService.Create(user_bff.Models.Order)">
+            <summary>
+            method using by API endpoint: /api/order/create
+            Use: create new pending order 
+            Input: order information
+            </summary>
+            <returns>Object</returns>
+        </member>
+        <member name="M:user_bff.Services.OrderService.Update(System.Int32,user_bff.Models.Order)">
+            <summary>
+            method using by API endpoint: /api/order/update/{id}
+            Use: update order information or status
+            Input: order information
+            </summary>
+            <param name="id"></param>
+            <param name="orderParam"></param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:user_bff.Services.IPaymentService.TakePayment(user_bff.Models.PayModel)">
+            <summary>
+            Use: Take online payment
+            </summary>
+            <param name="payModel">pay model</param>
+            <returns>object</returns>
+        </member>
+        <member name="M:user_bff.Services.IPaymentService.Refund(System.String)">
+            <summary>
+            Use: Refund payment by charge Id
+            </summary>
+            <param name="chargeId">charge Id</param>
+            <returns>Object</returns>
+        </member>
+        <member name="M:user_bff.Services.PaymentService.Refund(System.String)">
+            <Inheritdoc/>
+        </member>
+        <member name="M:user_bff.Services.PaymentService.TakePayment(user_bff.Models.PayModel)">
+            <Inheritdoc/>
+        </member>
+    </members>
+</doc>

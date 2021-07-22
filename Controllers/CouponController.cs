@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using user_bff.Helpers;
 using user_bff.Models;
 using user_bff.Services;
 
@@ -14,27 +15,38 @@ namespace user_bff.Controllers
     [ApiController]
     public class CouponController : ControllerBase
     {
-        public CouponController() { }
+        private readonly ICouponService _couponService;
+        public CouponController(ICouponService couponService)
+        {
+            _couponService = couponService;
+        }
 
         /// <summary>
-        /// Validate discount coupon code
-        /// GET api/<CouponController>/xyz123
+        /// Get: Validate discount coupon code
         /// </summary>
-        /// <param name="db">Database context service</param>
         /// <param name="couponCode">User requested discount coupon code</param>
         /// <returns></returns>
         [HttpGet("{couponCode}")]
-        public IActionResult Get([FromServices] DBContext db, string couponCode)
+        public IActionResult Get(string couponCode)
         {
-            if (!db.Coupon.Any(x => x.DiscountCode == couponCode))
+            try
             {
-                return NotFound(string.Format("Invalid Coupon: Coupon not found"));
+                if (!_couponService.IsCouponExists(couponCode))
+                {
+                    return NotFound(string.Format("Coupon not found"));
+                }
+                var coupon = _couponService.GetById(couponCode);
+                return Ok(new
+                {
+                    data = coupon,
+                    message = "Successfully returned coupon detail."
+                });
             }
-            else if (db.Coupon.Any(x => x.DiscountCode == couponCode && x.ExpiryDate > DateTime.UtcNow))
+            catch (AppException ex)
             {
-                return BadRequest(string.Format("Invalid Coupon: Coupon code is exipred"));
+                // return error message if there was an exception
+                return BadRequest(new { error = ex.Message });
             }
-            return Ok(db.Coupon.FirstOrDefault(x => x.DiscountCode == couponCode));
         }
     }
 }
