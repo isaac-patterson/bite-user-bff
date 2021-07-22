@@ -29,8 +29,7 @@ namespace user_bff
             services.AddCors();
             object p = services.AddControllers();
 
-            //var connectionString = "Server=146.71.76.234;Database=swiftfooddb;Uid=dbUser;Pwd=XXXX";
-            //var connectionString = "Server=localhost;Database=bite;Uid=root;Pwd=XXXXXXXX";
+            //var connectionString = "Server=146.71.76.234;Database=swiftfooddb;Uid=dbUser;Pwd=Pass@2021";
             //var connectionString = Configuration.GetValue<String>("Config:AuroraConnectionString");
             //var connectionString = "Server=localhost;Database=bite;Uid=root;Pwd=XXXXXXXX";
             var connectionString = Configuration.GetValue<String>("Config:AuroraConnectionString");
