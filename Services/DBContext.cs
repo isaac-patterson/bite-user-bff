@@ -18,8 +18,11 @@ namespace user_bff.Services
         public DbSet<MenuItemOptionValue> MenuItemOptionValue { get; set; }
 
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Orderitem> Orderitem { get; set; }
-        public DbSet<Orderitemoption> Orderitemoption { get; set; }
+        
+        public DbSet<OrderItem> OrderItem { get; set; }
+
+        public DbSet<OrderItemOption> OrderItemOption { get; set; }
+        
         public DbSet<Coupon> Coupon { get; set; }
     }
 }
