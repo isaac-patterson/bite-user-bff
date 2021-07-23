@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using user_bff.Helpers;
 using user_bff.Models;
 
 namespace user_bff.Services
@@ -40,10 +41,9 @@ namespace user_bff.Services
             {
                 return _stripeService.Refund(chargeId);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new AppException(ex.Message);
             }
         }
 
@@ -54,10 +54,9 @@ namespace user_bff.Services
             {
                 return _stripeService.Charge(payModel);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new AppException(ex.Message);
             }
         }
     }

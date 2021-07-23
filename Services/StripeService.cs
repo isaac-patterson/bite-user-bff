@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using user_bff.Helpers;
 using user_bff.Models;
 
 namespace user_bff.Services
@@ -20,7 +21,7 @@ namespace user_bff.Services
         /// <summary>
         /// Use: Refund stripe paymennt
         /// </summary>
-        /// <param name="refundCreateOptions">Regund create option</param>
+        /// <param name="refundCreateOptions">Refund create option</param>
         /// <returns>Object</returns>
         Refund Refund(string chargeId);
     }
@@ -54,46 +55,56 @@ namespace user_bff.Services
                     Source = stripeToken.Id
                 };
 
-
                 var chargeService = new ChargeService();
                 return chargeService.Create(chargeOptions);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new AppException(ex.Message);
             }
-
         }
 
         ///<inheritdoc/>
         public Refund Refund(string chargeId)
         {
-            StripeConfiguration.ApiKey = _ApiKey;
-            var options = new RefundCreateOptions
-            {
-                Charge = chargeId,
-            };
+            try {
+                StripeConfiguration.ApiKey = _ApiKey;
+                var options = new RefundCreateOptions
+                {
+                    Charge = chargeId,
+                };
 
-            var service = new RefundService();
-            return service.Create(options);
+                var service = new RefundService();
+                return service.Create(options);
+            }
+            catch (Exception ex)
+            {
+                throw new AppException(ex.Message);
+            }
         }
 
         private static Token CreateStripeToken(PayModel payModel)
         {
-            var options = new TokenCreateOptions
-            {
-                Card = new TokenCardOptions
+            try {
+                var options = new TokenCreateOptions
                 {
-                    Number = payModel.CardNumder,
-                    ExpMonth = payModel.Month,
-                    ExpYear = payModel.Year,
-                    Cvc = payModel.CVC
-                },
-            };
+                    Card = new TokenCardOptions
+                    {
+                        Number = payModel.CardNumder,
+                        ExpMonth = payModel.Month,
+                        ExpYear = payModel.Year,
+                        Cvc = payModel.CVC
+                    },
+                };
 
-            var serviceToken = new TokenService();
-            Token stripeToken = serviceToken.Create(options);
-            return stripeToken;
+                var serviceToken = new TokenService();
+                Token stripeToken = serviceToken.Create(options);
+                return stripeToken;
+            }
+            catch (Exception ex)
+            {
+                throw new AppException(ex.Message);
+            }
         }
     }
 }

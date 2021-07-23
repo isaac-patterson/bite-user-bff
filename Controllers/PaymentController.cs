@@ -40,17 +40,15 @@ namespace user_bff.Controllers
                     return Ok(new
                     {
                         data = charge.Id,
-                        message = "Successfully payment completed."
+                        message = "Payment completed successfully."
                     });
-
                 }
                 else
                 {
-                    return Ok(new
+                    return BadRequest(new
                     {
-                        message = string.Format("Payment failed: {0}.", charge.FailureMessage)
+                        error = string.Format("Payment failed: {0}.", charge.FailureMessage)
                     });
-
                 }
             }
             catch (AppException ex)
@@ -76,14 +74,14 @@ namespace user_bff.Controllers
                 {
                     return Ok(new
                     {
-                        message = "Successfully payment Refunded."
+                        message = "Payment refund completed successfully."
                     });
                 }
                 else
                 {
-                    return Ok(new
+                    return BadRequest(new
                     {
-                        message = string.Format("Refund failed: {0}.", refund.FailureReason)
+                        error = string.Format("Refund failed: {0}.", refund.FailureReason)
                     });
                 }
             }

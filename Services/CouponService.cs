@@ -35,17 +35,28 @@ namespace user_bff.Services
         ///<inheritdoc/>
         public Coupon GetById(string couponCode)
         {
-            if (_context.Coupon.Any(x => x.DiscountCode == couponCode && x.ExpiryDate > DateTime.UtcNow))
-            {
-                throw new AppException("Coupon code is exipred.");
+            try {
+                if (_context.Coupon.Any(x => x.DiscountCode == couponCode && x.ExpiryDate > DateTime.UtcNow))
+                {
+                    throw new AppException("Coupon code is exipred.");
+                }
+                Coupon coupon = _context.Coupon.FirstOrDefault(x => x.DiscountCode == couponCode);
+
+                if (coupon == null) {
+                    throw new AppException("Coupon code is not valid.");
+                }
+
+                return coupon;
             }
-            return _context.Coupon.FirstOrDefault(x => x.DiscountCode == couponCode);
+            catch (Exception ex) {
+                throw new AppException(ex.Message);
+            }
         }
 
         ///<inheritdoc/>
         public bool IsCouponExists(string couponCode)
         {
-            return _context.Coupon.Any(x => x.DiscountCode == couponCode);
+            return _context.Coupon.Any(x => x.DiscountCode == couponCode && x.ExpiryDate > DateTime.UtcNow);
         }
     }
 }
