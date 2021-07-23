@@ -53,7 +53,7 @@ namespace user_bff.Controllers
         /// </summary>
         /// <param name="couponCode">User requested discount coupon code</param>
         /// <returns></returns>
-        [HttpGet("{couponCode}")]
+        [HttpGet("/validate/{couponCode}")]
         public IActionResult Validate(string couponCode)
         {
             try
