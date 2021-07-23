@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace user_bff.Models
 {
-    public class Orderitem
+    public class OrderItem
     {
         public long OrderItemId { get; set; }
         public long? OrderId { get; set; }
         public decimal? ExtraPrice { get; set; }
         public string Name { get; set; }
-        public List<Orderitemoption> Orderitemoptions { get; set; }
+        public List<OrderItemOption> OrderItemOptions { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace user_bff.Models
 {
-    public class Orderitemoption
+    public class OrderItemOption
     {
         public long OrderItemOptionId { get; set; }
         public long? OrderItemId { get; set; }

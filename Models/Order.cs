@@ -18,6 +18,6 @@ namespace user_bff.Models
         public decimal? Total { get; set; }
         public string Currency { get; set; }
         public string Notes { get; set; }
-        public List<Orderitem> Orderitems { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
     }
 }

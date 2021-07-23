@@ -32,8 +32,8 @@ namespace user_bff.Services
         {
             // return all user except deleted
             return _context.Orders
-                .Include(x => x.Orderitems)
-                .ThenInclude(x => x.Orderitemoptions)
+                .Include(x => x.OrderItems)
+                .ThenInclude(x => x.OrderItemOptions)
                 //.FirstOrDefault(x => x.OrderId == id);
                 .OrderByDescending(x => x.CreatedDate);
         }
@@ -47,8 +47,8 @@ namespace user_bff.Services
         {
             // return user info based on ID
             return _context.Orders
-                .Include(x => x.Orderitems)
-                .ThenInclude(x => x.Orderitemoptions)
+                .Include(x => x.OrderItems)
+                .ThenInclude(x => x.OrderItemOptions)
                 .AsNoTracking()
                 .Where(m => m.OrderId == id)
                 .FirstOrDefault();
