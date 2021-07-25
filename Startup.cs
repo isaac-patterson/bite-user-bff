@@ -1,13 +1,18 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Reflection;
 using System.Text.Json.Serialization;
 using user_bff.Services;
@@ -30,13 +35,19 @@ namespace user_bff
             object p = services.AddControllers();
 
             //var connectionString = "Server=146.71.76.234;Database=swiftfooddb;Uid=dbUser;Pwd=Pass@2021";
-            //var connectionString = "Server=localhost;Database=bite;Uid=root;Pwd=XXXXXXXX";
-            var connectionString = Configuration.GetValue<String>("Config:AuroraConnectionString");
+            var connectionString = "Server=localhost;Database=bite;Uid=root;Pwd=ipat2421G#";
+            //var connectionString = Configuration.GetValue<String>("Config:AuroraConnectionString");
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 21));
 
             services.AddDbContext<DBContext>(
                 x => x.UseMySql(connectionString, serverVersion, options => options.EnableRetryOnFailure())
             );
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = GetCognitoTokenValidationParams();
+                });
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
@@ -82,12 +93,43 @@ namespace user_bff
 
             app.UsePathBase(new PathString("/user"));
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers(); //Routes for my API controllers
             });
 
             app.ApplicationServices.GetRequiredService<DBContext>().Database.EnsureCreated();
+        }
+
+        private TokenValidationParameters GetCognitoTokenValidationParams()
+        {
+            var cognitoIssuer = "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_ciKJBN6LL";
+            var jwtKeySetUrl = $"{cognitoIssuer}/.well-known/jwks.json";
+            var cognitoAudience = "2snq9fe1dfmnhbu47imro7u4nv";
+
+            return new TokenValidationParameters
+            {
+                IssuerSigningKeyResolver = (s, securityToken, identifier, parameters) =>
+                {
+                    // get JsonWebKeySet from AWS
+                    var json = new WebClient().DownloadString(jwtKeySetUrl);
+
+                    // serialize the result
+                    var keys = JsonConvert.DeserializeObject<JsonWebKeySet>(json).Keys;
+
+                    // cast the result to be the type expected by IssuerSigningKeyResolver
+                    return (IEnumerable<SecurityKey>)keys;
+                },
+                ValidIssuer = cognitoIssuer,
+                ValidateIssuerSigningKey = true,
+                ValidateIssuer = true,
+                ValidateLifetime = true,
+                ValidAudience = cognitoAudience
+            };
         }
     }
 }

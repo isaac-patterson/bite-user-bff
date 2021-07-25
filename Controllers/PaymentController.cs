@@ -1,10 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Stripe;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using user_bff.Helpers;
 using user_bff.Models;
 using user_bff.Services;
@@ -30,6 +25,7 @@ namespace user_bff.Controllers
         /// <param name="payModel">paymodel</param>
         /// <returns>object</returns>
         [HttpPost]
+        [Authorize]
         public IActionResult Charge([FromBody] PayModel payModel)
         {
             try
@@ -65,6 +61,7 @@ namespace user_bff.Controllers
         /// <param name="chargeId">chargeId</param>
         /// <returns>Object</returns>
         [HttpGet("{chargeId}")]
+        [Authorize]
         public IActionResult Refund(string chargeId)
         {
             try

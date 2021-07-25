@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using user_bff.Models;
 using user_bff.Services;
 using user_bff.Helpers;
-using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace user_bff.Controllers
 {
@@ -25,6 +23,7 @@ namespace user_bff.Controllers
         /// <returns>Order entity</returns>
         // GET api/<OrderController>/5
         [HttpGet("{id}")]
+        [Authorize]
         public ActionResult<Order> Get(int id)
         {
             try
@@ -49,6 +48,7 @@ namespace user_bff.Controllers
         /// <param name="order">Order entity</param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize]
         public ActionResult Create([FromBody] Order order)
         {
             try

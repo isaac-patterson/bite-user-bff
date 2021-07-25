@@ -18,13 +18,13 @@ namespace user_bff.Controllers
     {
         public RestaurantController() {}
 
+        [Authorize]
         [HttpGet]
         public ActionResult<List<Restaurant>> Get([FromServices] DBContext db)
         {
             List<Restaurant> restaurants;
             restaurants = db.Restaurant.ToList(); 
             
-
             return restaurants;
         }
     }

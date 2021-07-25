@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -18,6 +19,7 @@ namespace user_bff.Controllers
         public MenuController() { }
 
         [HttpGet]
+        [Authorize]
         public ActionResult<List<MenuItem>> Get([FromServices] DBContext db, int restaurantId)
         {
             List<MenuItem> menuItems;

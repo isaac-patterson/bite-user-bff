@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using user_bff.Helpers;
-using user_bff.Models;
 using user_bff.Services;
 
 namespace user_bff.Controllers
@@ -25,6 +21,7 @@ namespace user_bff.Controllers
         /// <param name="couponCode">User requested discount coupon code</param>
         /// <returns></returns>
         [HttpGet("{couponCode}")]
+        [Authorize]
         public IActionResult Get(string couponCode)
         {
             try
@@ -54,6 +51,7 @@ namespace user_bff.Controllers
         /// <param name="couponCode">User requested discount coupon code</param>
         /// <returns></returns>
         [HttpGet("/validate/{couponCode}")]
+        [Authorize]
         public IActionResult Validate(string couponCode)
         {
             try
