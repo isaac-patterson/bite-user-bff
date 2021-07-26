@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Reflection;
-using System.Text.Json.Serialization;
 using user_bff.Services;
 
 namespace user_bff
@@ -35,8 +34,8 @@ namespace user_bff
             object p = services.AddControllers();
 
             //var connectionString = "Server=146.71.76.234;Database=swiftfooddb;Uid=dbUser;Pwd=Pass@2021";
-            var connectionString = "Server=localhost;Database=bite;Uid=root;Pwd=ipat2421G#";
-            //var connectionString = Configuration.GetValue<String>("Config:AuroraConnectionString");
+            //var connectionString = "Server=localhost;Database=bite;Uid=root;Pwd=#";
+            var connectionString = Configuration.GetValue<String>("Config:AuroraConnectionString");
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 21));
 
             services.AddDbContext<DBContext>(
